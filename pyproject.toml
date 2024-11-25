@@ -1,0 +1,25 @@
+[project]
+name = "template"
+version = "0.0.0"
+description = "A minimal python template using ruff and pytest."
+
+[project.optional-dependencies]
+lint = ["ruff"]
+test = ["pytest"]
+
+[tool.ruff]
+# I001: Import block is un-sorted or un-formatted
+# E731: Do not assign a lambda expression, use a def 
+fixable = ["I001"]
+ignore = ["E731"]
+select = ["E", "F", "I001"]
+src = []
+
+# Force every function to have a docstring
+[tool.ruff.lint]
+extend-select = [
+  "D",   # pydocstyle
+]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
